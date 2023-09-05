@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Форма запроса помощи{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Форма запроса помощи</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.title }}<br>
+            {{ form.intro }}<br>
+            {{ form.full_text }}<br>
+            {{ form.date }}<br>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Запросить помощь</button>
+        </form>
+    </div>
+{% endblock %}

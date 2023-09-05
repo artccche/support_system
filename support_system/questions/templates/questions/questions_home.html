@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Актуальные вопросы{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Актуальные вопросы</h1>
+        {% if questions %}
+            {% for el in questions %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.intro }}</p>
+                    <a href="{% url 'questions-detail' el.id %} " class="btn btn-warning">Подробнее</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>У вас пока нет записей</p>
+        {% endif %}
+
+        {# Комментарий #}
+    </div>
+{% endblock %}
